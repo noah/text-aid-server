@@ -1,4 +1,4 @@
-EDITOR_CMD = '/opt/local/bin/mvim -c"au VimLeave * !open -a Google\ Chrome" -f'
+EDITOR_CMD = 'rgvim -f'
 
 %w[rubygems rack].each {|l| require l }
 
@@ -25,7 +25,7 @@ STR
       tempfile.open
       body = tempfile.read.chomp
       tempfile.close!
-      [200, { 'Content-Type' => 'text/plain' }, body]
+      [200, { 'Content-Type' => 'text/plain' }, [body]]
     end
   end
 
